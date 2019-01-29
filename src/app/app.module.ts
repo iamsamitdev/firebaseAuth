@@ -20,12 +20,16 @@ import { MenuPage } from '../pages/menu/menu';
 import { AuthService } from '../pages/services/auth.service';
 import { FirebaseService } from '../pages/services/firebase.service';
 
+import {  ImagePicker } from '@ionic-native/image-picker';
+import { AddNewTaskPage } from '../pages/add-new-task/add-new-task';
+
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
     RegisterPage,
-    MenuPage
+    MenuPage,
+    AddNewTaskPage
   ],
   imports: [
     BrowserModule,
@@ -40,14 +44,16 @@ import { FirebaseService } from '../pages/services/firebase.service';
     MyApp,
     LoginPage,
     RegisterPage,
-    MenuPage
+    MenuPage,
+    AddNewTaskPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    FirebaseService
+    FirebaseService,
+    ImagePicker
   ]
 })
 export class AppModule {}

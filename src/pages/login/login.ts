@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { RegisterPage } from '../register/register';
 import { MenuPage } from '../menu/menu';
+import { AuthService } from '../services/auth.service';
 
 @IonicPage()
 @Component({
@@ -29,7 +30,8 @@ export class LoginPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public formBuilder: FormBuilder) {
+    public formBuilder: FormBuilder,
+    public authService: AuthService) {
   }
 
   ionViewWillLoad() {
@@ -49,5 +51,16 @@ export class LoginPage {
  goRegisterPage(){
   this.navCtrl.push(RegisterPage);
  }
+
+ // ฟังก์ชันสำหรับการล็อกอิน
+ tryLogin(value){
+  this.authService.doLogin(value)
+  .then(res => {
+    this.navCtrl.setRoot(MenuPage);
+  }, err => {
+    this.errorMessage = err.message;
+  })
+}
+
 
 }
