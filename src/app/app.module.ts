@@ -22,6 +22,7 @@ import { FirebaseService } from '../pages/services/firebase.service';
 
 import {  ImagePicker } from '@ionic-native/image-picker';
 import { AddNewTaskPage } from '../pages/add-new-task/add-new-task';
+import { DetailPage } from '../pages/detail/detail';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AddNewTaskPage } from '../pages/add-new-task/add-new-task';
     LoginPage,
     RegisterPage,
     MenuPage,
-    AddNewTaskPage
+    AddNewTaskPage,
+    DetailPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { AddNewTaskPage } from '../pages/add-new-task/add-new-task';
     LoginPage,
     RegisterPage,
     MenuPage,
-    AddNewTaskPage
+    AddNewTaskPage,
+    DetailPage
   ],
   providers: [
     StatusBar,

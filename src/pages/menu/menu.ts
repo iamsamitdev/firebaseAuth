@@ -4,6 +4,7 @@ import { LoginPage } from '../login/login';
 import { AuthService } from '../services/auth.service';
 import { AddNewTaskPage } from '../add-new-task/add-new-task';
 import { FirebaseService } from '../services/firebase.service';
+import { DetailPage } from '../detail/detail';
 
 @IonicPage()
 @Component({
@@ -29,8 +30,8 @@ export class MenuPage {
     })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MenuPage');
+  ionViewDidEnter() {
+    this.getData();
   }
 
   //  ออกจากระบบ
@@ -48,6 +49,19 @@ export class MenuPage {
       this.getData();
     });
     modal.present();
+  }
+
+  viewDetails(id, item){
+    // debugger
+    let data = {
+      title: item.title,
+      description: item.description,
+      image: item.image,
+      id: id
+    }
+    this.navCtrl.push(DetailPage, {
+      data: data
+    })
   }
 
 }
